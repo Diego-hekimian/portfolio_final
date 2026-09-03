@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfolio de Diego Hekimian, étudiant en Bachelor Informatique Développement à l'IPSSI.">
   <title>Diego Hekimian | Portfolio</title>
-
   <style>
     :root {
       --bg: #070b14;
-      --surface: rgba(18, 27, 46, 0.84);
+      --surface: rgba(18, 27, 46, 0.86);
       --text: #f5f7fb;
       --muted: #a8b3c7;
       --cyan: #39d5ff;
@@ -20,46 +19,30 @@
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 78px; }
-
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
     body {
       margin: 0;
       color: var(--text);
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      line-height: 1.65;
-      overflow-x: hidden;
       background:
         radial-gradient(circle at 12% 8%, rgba(57, 213, 255, 0.15), transparent 25%),
         radial-gradient(circle at 88% 18%, rgba(139, 92, 246, 0.16), transparent 27%),
         linear-gradient(180deg, #070b14, #0b1020 50%, #070b14);
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.2;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: linear-gradient(to bottom, #000, transparent 90%);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
-    code { color: #d9c9ff; }
     .container { width: min(1140px, calc(100% - 38px)); margin: auto; }
 
     nav {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(7, 11, 20, 0.84);
+      background: rgba(7, 11, 20, 0.86);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
-
     .nav-inner {
       min-height: 72px;
       display: flex;
@@ -67,11 +50,10 @@
       justify-content: space-between;
       gap: 22px;
     }
-
     .logo { font-weight: 900; letter-spacing: 0.4px; }
-    .logo span { color: var(--cyan); }
-    .nav-links { display: flex; gap: 18px; }
-    .nav-links a { color: var(--muted); font-weight: 750; font-size: 0.88rem; }
+    .logo span, .kicker, .project-link { color: var(--cyan); }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { color: var(--muted); font-weight: 750; font-size: 0.9rem; }
     .nav-links a:hover { color: #fff; }
 
     .hero {
@@ -82,100 +64,64 @@
       gap: 64px;
       padding: 80px 0 58px;
     }
-
-    .eyebrow, .badge {
+    .eyebrow {
       display: inline-flex;
-      align-items: center;
       gap: 9px;
+      align-items: center;
       padding: 7px 12px;
       border: 1px solid rgba(57, 213, 255, 0.28);
       border-radius: 999px;
       background: rgba(57, 213, 255, 0.08);
       color: var(--cyan);
       font-weight: 850;
-      font-size: 0.82rem;
+      font-size: 0.84rem;
     }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 14px var(--green);
-    }
-
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
     h1 {
-      margin: 22px 0;
       font-size: clamp(3.2rem, 7vw, 5.8rem);
       line-height: 0.96;
       letter-spacing: -0.06em;
+      margin: 22px 0;
     }
-
-    h2 {
-      margin: 0;
-      font-size: clamp(2.1rem, 4vw, 3.35rem);
-      line-height: 1.08;
-      letter-spacing: -0.045em;
-    }
-
-    h3 { line-height: 1.25; }
-
     .gradient {
       color: transparent;
       background: linear-gradient(90deg, var(--cyan), #a78bfa 58%, #f0abfc);
       background-clip: text;
       -webkit-background-clip: text;
     }
-
-    .hero p, .panel p, .card p, .card li, .muted { color: var(--muted); }
-    .hero p { max-width: 680px; font-size: 1.13rem; }
-    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 28px; }
-
+    .hero p { color: var(--muted); font-size: 1.13rem; max-width: 680px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       min-height: 48px;
       padding: 0 18px;
-      border: 1px solid var(--border);
       border-radius: 12px;
+      border: 1px solid var(--border);
       font-weight: 850;
-      transition: transform 0.2s, border-color 0.2s;
+      transition: 0.2s;
     }
-
-    .btn:hover { transform: translateY(-3px); border-color: rgba(57, 213, 255, 0.45); }
+    .btn:hover { transform: translateY(-3px); }
     .primary { background: linear-gradient(135deg, #19b8db, #7c3aed); border-color: transparent; }
-    .secondary { background: rgba(255, 255, 255, 0.04); }
 
     .terminal {
-      overflow: hidden;
       border: 1px solid var(--border);
-      border-radius: 22px;
       background: rgba(9, 14, 27, 0.92);
+      border-radius: 22px;
+      overflow: hidden;
       box-shadow: var(--shadow);
       transform: rotate(1.4deg);
     }
-
-    .terminal-top {
-      height: 45px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0 17px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .terminal-top i { width: 11px; height: 11px; border-radius: 50%; }
-    .terminal-top i:nth-child(1) { background: #ff5f57; }
+    .terminal-top { height: 45px; padding: 15px 17px; border-bottom: 1px solid var(--border); }
+    .terminal-top i { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 6px; background: #ff5f57; }
     .terminal-top i:nth-child(2) { background: #febc2e; }
     .terminal-top i:nth-child(3) { background: #28c840; }
     .terminal-body { padding: 25px; font: 0.94rem/1.95 Consolas, monospace; color: #d7ddec; }
     .key { color: #b79cff; }
     .value { color: var(--green); }
-    .comment { color: #71809a; }
 
     section { padding: 90px 0; }
-
     .section-head {
       display: flex;
       align-items: end;
@@ -183,126 +129,149 @@
       gap: 25px;
       margin-bottom: 38px;
     }
+    .kicker { margin: 0 0 7px; font-size: 0.78rem; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; }
+    h2 { font-size: clamp(2.1rem, 4vw, 3.35rem); line-height: 1.08; letter-spacing: -0.045em; margin: 0; }
+    .section-head > p { max-width: 490px; margin: 0; color: var(--muted); }
 
-    .section-head > p { max-width: 500px; margin: 0; color: var(--muted); }
-    .kicker { margin: 0 0 7px; color: var(--cyan); font-size: 0.78rem; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; }
-
-    .panel, .card {
-      padding: 28px;
+    .panel, .project, .skill-card, .cert-card, .cta {
       border: 1px solid var(--border);
-      border-radius: 20px;
-      background: var(--surface);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
-    }
-
-    .about-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 24px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .tags, .tech-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
-    .tag, .tech { padding: 7px 11px; border: 1px solid var(--border); border-radius: 9px; background: rgba(255, 255, 255, 0.05); font-size: 0.85rem; font-weight: 800; }
-
-    .timeline { display: grid; gap: 23px; }
-    .timeline-item { display: grid; grid-template-columns: 15px 1fr; gap: 15px; }
-    .marker { width: 12px; height: 12px; margin-top: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 17px rgba(57, 213, 255, 0.65); }
-    .timeline-item h3 { margin: 0 0 5px; }
-    .timeline-item p { margin: 0; }
-    .icon { font-size: 1.7rem; }
-    .card h3 { margin: 12px 0 8px; }
-
-    .projects { display: grid; gap: 30px; }
-
-    .project {
-      display: grid;
-      grid-template-columns: 0.88fr 1.12fr;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      border-radius: 24px;
       background: var(--surface);
       box-shadow: var(--shadow);
     }
+    .about-grid, .stage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .panel { padding: 30px; border-radius: 21px; }
+    .panel p, .panel li { color: var(--muted); }
+    .timeline { display: grid; gap: 22px; }
+    .timeline-item { border-left: 3px solid var(--cyan); padding-left: 18px; }
+    .timeline-item h3 { margin: 0 0 5px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+    .tag { padding: 7px 11px; border: 1px solid var(--border); border-radius: 9px; background: rgba(255,255,255,0.05); font-weight: 800; font-size: 0.84rem; }
 
-    .project:nth-child(even) { grid-template-columns: 1.12fr 0.88fr; }
-    .project:nth-child(even) .project-visual { order: 2; border-right: 0; border-left: 1px solid var(--border); }
-
-    .project-visual {
-      min-height: 240px;
-      position: relative;
+    .projects { display: grid; gap: 30px; }
+    .project {
+      display: grid;
+      grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1.1fr);
+      align-items: stretch;
+      border-radius: 24px;
       overflow: hidden;
+    }
+    .project-content {
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .project-content > p { color: var(--muted); }
+    .project h3 { font-size: clamp(1.8rem, 3vw, 2.5rem); margin: 8px 0 12px; }
+
+    .project-gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+      align-content: center;
+      gap: 12px;
+      padding: 16px;
+      background: rgba(4, 9, 18, 0.55);
       border-right: 1px solid var(--border);
-      background: #0b1020;
     }
-
-    .project-visual {
-        min-height: 440px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
+    .project-gallery.two,
+    .project-gallery.three {
+      grid-template-columns: 1fr;
     }
-
-    .project-visual img {
-        width: 100%;
-        max-width: 520px;
-        height: auto;
-        border-radius: 12px;
-
-        box-shadow:
-            0 20px 40px rgba(0,0,0,.4);
+    .project-gallery figure { margin: 0; min-width: 0; }
+    .project-gallery img {
+      width: 100%;
+      height: 190px;
+      display: block;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      cursor: zoom-in;
+      transition: transform 0.28s ease, opacity 0.28s ease;
     }
+    .project-gallery.three img { height: 145px; }
+    .project-gallery img:hover { transform: scale(1.018); opacity: 0.9; }
+    .project-gallery figcaption { color: var(--muted); font-size: 0.82rem; padding: 7px 3px 0; }
 
-    .project:hover .project-visual img { transform: scale(1.05); opacity: 0.84; }
-
-    .visual-label {
-      position: absolute;
-      z-index: 2;
-      top: 20px;
-      left: 20px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, 0.62);
-      backdrop-filter: blur(8px);
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-    }
-
-    .project-info { padding: 38px; }
-    .project-number { color: var(--cyan); font-size: 0.75rem; font-weight: 900; letter-spacing: 0.13em; }
-    .project h3 { margin: 9px 0 12px; font-size: clamp(1.8rem, 3vw, 2.5rem); letter-spacing: -0.035em; }
-    .project-info > p { color: var(--muted); }
-    .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
-    .mini { padding: 17px; border: 1px solid var(--border); border-radius: 14px; background: rgba(255, 255, 255, 0.035); }
+    .mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
+    .mini { padding: 17px; border: 1px solid var(--border); border-radius: 14px; background: rgba(255,255,255,0.035); }
     .mini h4 { margin: 0 0 7px; }
-    .mini p, .mini ul { margin: 0; color: var(--muted); font-size: 0.92rem; }
-    .mini ul, .clean-list, .card ul { padding-left: 18px; }
-    .project-link, .cert-link { display: inline-block; margin-top: 8px; color: var(--cyan); font-weight: 900; border-bottom: 1px solid rgba(57, 213, 255, 0.42); }
-    .highlight { background: linear-gradient(145deg, rgba(57, 213, 255, 0.1), rgba(139, 92, 246, 0.1)); }
+    .mini p, .mini li { color: var(--muted); font-size: 0.92rem; }
+    .mini ul { margin: 0; padding-left: 18px; }
+    .project-link { display: inline-block; margin-top: 8px; font-weight: 900; }
 
-    .contact { padding: 43px; border: 1px solid rgba(57, 213, 255, 0.22); border-radius: 24px; background: linear-gradient(135deg, rgba(57, 213, 255, 0.08), rgba(139, 92, 246, 0.1)); }
-    footer { padding: 30px 0 42px; text-align: center; color: #78869e; border-top: 1px solid var(--border); }
+    .skills-grid, .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .skill-card, .cert-card { padding: 24px; border-radius: 18px; }
+    .skill-card p, .skill-card li, .cert-card p { color: var(--muted); }
+    .skill-card ul { padding-left: 18px; }
+    .cert-list {
+        list-style: none;
+        padding: 1;
+        margin: 12px 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .cert-list li {
+        margin: 0;
+    }
+
+    .cert-list a {
+        color: var(--cyan);
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+
+
+
+    .cta { padding: 42px; border-radius: 24px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 25px; }
+    .cta p { color: var(--muted); }
+    footer { padding: 30px; text-align: center; color: #78869e; border-top: 1px solid var(--border); }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      background: rgba(0, 0, 0, 0.9);
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 95vw; max-height: 90vh; object-fit: contain; border-radius: 12px; }
+    .lightbox button { position: absolute; top: 18px; right: 22px; border: 0; background: transparent; color: white; font-size: 2.5rem; cursor: pointer; }
+
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s, transform 0.65s; }
     .reveal.visible { opacity: 1; transform: none; }
 
     @media (max-width: 900px) {
-      .hero, .about-grid { grid-template-columns: 1fr; }
+      .hero, .about-grid, .stage-grid { grid-template-columns: 1fr; }
       .terminal { transform: none; }
-      .project, .project:nth-child(even) { grid-template-columns: 1fr; }
-      .project:nth-child(even) .project-visual { order: 0; border: 0; border-bottom: 1px solid var(--border); }
-      .project-visual { border: 0; border-bottom: 1px solid var(--border); }
-      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .skills-grid, .cert-grid { grid-template-columns: 1fr 1fr; }
       .section-head { align-items: start; flex-direction: column; }
+      .project { grid-template-columns: 1fr; }
+      .project-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .project-gallery.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .project-gallery.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .project-gallery.three img { height: 180px; }
+      .cta { grid-template-columns: 1fr; }
     }
-
     @media (max-width: 650px) {
+      .nav-links a:not(.mobile) { display: none; }
       .container { width: min(100% - 26px, 1140px); }
-      .nav-links a:not(.keep) { display: none; }
       section { padding: 68px 0; }
-      .hero { padding-top: 58px; }
-      .project-info, .panel, .card, .contact { padding: 24px; }
-      .project-grid, .grid-2, .grid-3 { grid-template-columns: 1fr; }
-      .project-visual { min-height: 270px; }
-      h1 { font-size: 3.35rem; }
+      .hero { padding: 55px 0; }
+      .project-gallery.two, .project-gallery.three, .mini-grid, .skills-grid, .cert-grid { grid-template-columns: 1fr; }
+      .project-gallery img,
+      .project-gallery.three img { height: 230px; }
+      .project-content, .panel, .cta { padding: 24px; }
     }
   </style>
 </head>
@@ -312,12 +281,10 @@
       <a class="logo" href="#accueil">DIEGO<span>.DEV</span></a>
       <div class="nav-links">
         <a href="#parcours">Parcours</a>
-        <a href="#qualites">Qualités</a>
-        <a class="keep" href="#projets">Projets</a>
+        <a class="mobile" href="#projets">Projets</a>
         <a href="#competences">Compétences</a>
         <a href="#certifications">Certifications</a>
         <a href="#stage">Stage</a>
-        <a href="#interets">Intérêts</a>
       </div>
     </div>
   </nav>
@@ -327,25 +294,21 @@
       <div>
         <div class="eyebrow"><span class="dot"></span> Étudiant en informatique</div>
         <h1>Diego<br><span class="gradient">Hekimian</span></h1>
-        <p>Étudiant en Bachelor Informatique Développement à l'IPSSI, je construis mon parcours autour du développement web, des systèmes, des réseaux et de la cybersécurité.</p>
+        <p>Étudiant en Bachelor Informatique Développement à l'IPSSI, je présente mon parcours, mes projets web et les compétences développées en systèmes, réseaux et cybersécurité.</p>
         <div class="actions">
-          <a class="btn primary" href="#projets">Découvrir mes projets ↓</a>
-          <a class="btn secondary" href="assets/CV_Diego_HekimianV2.1.docx" target="_blank">Consulter mon CV</a>
+          <a class="btn primary" href="#projets">Découvrir mes projets</a>
+          <a class="btn" href="assets/CV_Diego_HekimianV2.1.docx">Voir mon CV</a>
         </div>
       </div>
-
       <div class="terminal">
         <div class="terminal-top"><i></i><i></i><i></i></div>
         <div class="terminal-body">
-          <div><span class="key">const</span> profil = {</div>
-          <div>&nbsp;&nbsp;nom: <span class="value">"Diego Hekimian"</span>,</div>
-          <div>&nbsp;&nbsp;formation: <span class="value">"Bachelor Informatique"</span>,</div>
-          <div>&nbsp;&nbsp;école: <span class="value">"IPSSI"</span>,</div>
-          <div>&nbsp;&nbsp;domaines: [<span class="value">"Web"</span>, <span class="value">"Systèmes"</span>],</div>
-          <div>&nbsp;&nbsp;objectif: <span class="value">"Cybersécurité"</span></div>
-          <div>};</div>
-          <br>
-          <div class="comment">// Une progression construite projet après projet.</div>
+          <span class="key">const</span> profil = {<br>
+          &nbsp;&nbsp;formation: <span class="value">"Bachelor Informatique"</span>,<br>
+          &nbsp;&nbsp;école: <span class="value">"IPSSI"</span>,<br>
+          &nbsp;&nbsp;domaines: [<span class="value">"Web"</span>, <span class="value">"Systèmes"</span>],<br>
+          &nbsp;&nbsp;objectif: <span class="value">"Cybersécurité"</span><br>
+          };
         </div>
       </div>
     </header>
@@ -353,46 +316,21 @@
     <section id="parcours">
       <div class="container">
         <div class="section-head reveal">
-          <div><p class="kicker">Mon profil</p><h2>À propos et parcours</h2></div>
-          <p>De mes premières découvertes de la programmation jusqu'à ma formation à l'IPSSI et mon expérience professionnelle.</p>
+          <div><p class="kicker">Mon profil</p><h2>Parcours et orientation</h2></div>
+          <p>De la découverte de la programmation au lycée jusqu'à une première expérience professionnelle sur une application métier.</p>
         </div>
-
         <div class="about-grid">
           <article class="panel reveal">
             <h3>À propos de moi</h3>
-            <p>Passionné par l'informatique depuis le collège, j'ai commencé avec Scratch et Arduino avant de travailler avec Python au lycée.</p>
-            <p>Au lycée Gustave Eiffel de Gagny, j'ai suivi les spécialités Mathématiques et Numérique et Sciences Informatiques. Depuis septembre 2025, je poursuis un Bachelor Informatique Développement à l'IPSSI.</p>
-            <p>Je souhaite consolider mes compétences de développeur et approfondir progressivement la cybersécurité.</p>
-            <div class="tags">
-              <span class="tag">Développement web</span>
-              <span class="tag">PHP / MySQL</span>
-              <span class="tag">Systèmes & réseaux</span>
-              <span class="tag">Cybersécurité</span>
-            </div>
+            <p>J'ai découvert la programmation au lycée grâce à la spécialité NSI. Cette première approche m'a donné envie de comprendre la création d'applications et de poursuivre dans le développement.</p>
+            <p>À l'IPSSI, j'ai exploré le développement web, les bases de données, les systèmes, les réseaux, la virtualisation et la sécurité informatique.</p>
+            <div class="tags"><span class="tag">Développement web</span><span class="tag">Back-end</span><span class="tag">Systèmes</span><span class="tag">Cybersécurité</span></div>
           </article>
-
           <article class="panel timeline reveal">
-            <div class="timeline-item"><span class="marker"></span><div><h3>Premières découvertes</h3><p>Scratch, Arduino puis Python.</p></div></div>
-            <div class="timeline-item"><span class="marker"></span><div><h3>Lycée Gustave Eiffel, Gagny</h3><p>Baccalauréat général, spécialités Mathématiques et NSI.</p></div></div>
-            <div class="timeline-item"><span class="marker"></span><div><h3>Bachelor Informatique, IPSSI</h3><p>Développement, bases de données, systèmes, réseaux et sécurité.</p></div></div>
-            <div class="timeline-item"><span class="marker"></span><div><h3>Stage à la CIPAV</h3><p>Participation à l'évolution de l'application CR-PATCH.</p></div></div>
+            <div class="timeline-item"><h3>Lycée Gustave Eiffel, Gagny</h3><p>Baccalauréat général avec les spécialités Mathématiques et Numérique et Sciences Informatiques.</p></div>
+            <div class="timeline-item"><h3>Bachelor Informatique Développement, IPSSI</h3><p>Projets en développement, bases de données, systèmes, réseaux, virtualisation et sécurité.</p></div>
+            <div class="timeline-item"><h3>Stage à la CIPAV</h3><p>Participation à l'évolution de l'application interne CR-PATCH.</p></div>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="qualites">
-      <div class="container">
-        <div class="section-head reveal">
-          <div><p class="kicker">Savoir-être</p><h2>Qualités personnelles</h2></div>
-          <p>Des qualités que je mobilise dans mes études, mes projets collectifs et mon expérience en entreprise.</p>
-        </div>
-        <div class="grid-3">
-          <article class="card reveal"><div class="icon">🎯</div><h3>Sérieux et concentration</h3><p>Je reste attentif aux consignes et à la qualité du travail rendu, notamment pendant les phases de développement, de test et de correction.</p></article>
-          <article class="card reveal"><div class="icon">✓</div><h3>Ponctualité et fiabilité</h3><p>Je m'organise pour respecter les échéances et assurer un suivi régulier des missions qui me sont confiées.</p></article>
-          <article class="card reveal"><div class="icon">🤝</div><h3>Esprit d'équipe</h3><p>J'apprécie la collaboration, le partage d'informations et la prise en compte des retours pour améliorer un projet.</p></article>
-          <article class="card reveal"><div class="icon">🔎</div><h3>Curiosité</h3><p>Je cherche à comprendre le fonctionnement des outils et à découvrir de nouvelles technologies.</p></article>
-          <article class="card reveal"><div class="icon">🚀</div><h3>Motivation pour apprendre</h3><p>Je considère chaque difficulté technique comme une occasion de progresser et de renforcer mes méthodes de travail.</p></article>
         </div>
       </div>
     </section>
@@ -401,64 +339,62 @@
       <div class="container">
         <div class="section-head reveal">
           <div><p class="kicker">Réalisations</p><h2>Projets académiques majeurs</h2></div>
-          <p>Une progression depuis une première interface HTML/CSS jusqu'à des applications utilisant une base de données, l'authentification et la gestion des accès.</p>
+          <p>Deux captures pour Dying Light et la messagerie PHP, puis trois captures choisies pour présenter les fonctions principales de Quizzeo.</p>
         </div>
 
         <div class="projects">
           <article class="project reveal">
-            <div class="project-visual">
-              <span class="visual-label">HTML • CSS</span>
-              <img src="assets/dyinglight.png" alt="Capture du projet Dying Light">
+            <div class="project-gallery two">
+              <figure><img src="assets/projet1/dyinglight.png" alt="Page principale du site Dying Light" loading="lazy"><figcaption>Page principale et identité visuelle</figcaption></figure>
+              <figure><img src="assets/projet1/dyinglight2.png" alt="Deuxième capture du site Dying Light" loading="lazy"><figcaption>Suite de la présentation de la licence</figcaption></figure>
             </div>
-            <div class="project-info">
-              <span class="project-number">PROJET 01</span>
-              <h3>Site Dying Light</h3>
-              <p>Premier projet web réalisé pendant ma formation. L'objectif était de concevoir une interface complète consacrée à la licence Dying Light, avec un univers visuel cohérent et du contenu multimédia.</p>
-              <div class="project-grid">
-                <div class="mini"><h4>Contenu</h4><ul><li>Présentation des différents jeux</li><li>Textes descriptifs</li><li>Images illustratives</li><li>Vidéos YouTube intégrées</li></ul></div>
-                <div class="mini"><h4>Travail visuel</h4><ul><li>Fond inspiré de l'univers zombie</li><li>Couleurs personnalisées</li><li>Agrandissement au survol</li><li>Variation de l'opacité</li></ul></div>
-                <div class="mini"><h4>Difficultés rencontrées</h4><p>Organiser le contenu tout en conservant une mise en page cohérente et agréable à parcourir.</p></div>
-                <div class="mini"><h4>Compétences acquises</h4><p>HTML, CSS, intégration multimédia, expérience utilisateur et organisation d'un site complet.</p></div>
+            <div class="project-content">
+              <p class="kicker">Projet 01 · HTML / CSS</p><h3>Site Dying Light</h3>
+              <p>Premier site web consacré à la licence Dying Light, avec des textes, des images, des vidéos et une identité visuelle inspirée de l'univers du jeu.</p>
+              <div class="mini-grid">
+                <div class="mini"><h4>Contenu</h4><ul><li>Présentation des différents jeux</li><li>Images et vidéos YouTube</li><li>Textes descriptifs</li></ul></div>
+                <div class="mini"><h4>Travail visuel</h4><ul><li>Fond sur le thème zombie</li><li>Couleurs personnalisées</li><li>Agrandissement et opacité au survol</li></ul></div>
+                <div class="mini"><h4>Difficultés</h4><p>Organiser la page et conserver une mise en page cohérente malgré les médias.</p></div>
+                <div class="mini"><h4>Apports</h4><p>Structure HTML, CSS et premières notions d'expérience utilisateur.</p></div>
               </div>
-              <span class="project-link">Premier projet réalisé durant ma formation</span>
+              <a class="project-link" href="https://github.com/Diego-hekimian/dyinglight" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub ↗</a>
             </div>
           </article>
 
           <article class="project reveal">
-            <div class="project-visual">
-              <span class="visual-label">PHP • MySQL • PDO</span>
-              <img src="assets/messagerie.png" alt="Illustration du projet de messagerie PHP">
+            <div class="project-gallery two">
+              <figure><img src="assets/projet2/login_m.png" alt="Page de connexion du projet PHP" loading="lazy"><figcaption>Connexion et gestion de l'accès</figcaption></figure>
+              <figure><img src="assets/projet2/messagerie.png" alt="Interface de messagerie du projet PHP" loading="lazy"><figcaption>Interface d'affichage et d'envoi des messages</figcaption></figure>
             </div>
-            <div class="project-info">
-              <span class="project-number">PROJET 02</span>
-              <h3>Connexion, inscription et messagerie</h3>
-              <p>Application PHP reliée à MySQL permettant de créer un compte, de se connecter, de gérer une session et d'échanger des messages.</p>
-              <div class="project-grid">
-                <div class="mini"><h4>Architecture</h4><ul><li><code>sql.php</code></li><li><code>formulaire.php</code></li><li><code>registre_erreurs.php</code></li><li><code>login.php</code> / <code>logout.php</code></li><li><code>message.php</code></li></ul></div>
-                <div class="mini"><h4>Sécurité</h4><ul><li>Contrôle des champs</li><li><code>password_hash</code></li><li><code>password_verify</code></li><li><code>session_regenerate_id</code></li></ul></div>
-                <div class="mini"><h4>Base de données</h4><p>Connexion PDO, encodage utf8mb4, requêtes SELECT et INSERT et contrôle de l'unicité du nom d'utilisateur.</p></div>
-                <div class="mini"><h4>Messagerie</h4><p>Session obligatoire, contrôle du contenu, insertion en base et affichage des messages avec leur date.</p></div>
+            <div class="project-content">
+              <p class="kicker">Projet 02 · PHP / MySQL / PDO</p><h3>Connexion, inscription et messagerie</h3>
+              <p>Application PHP permettant de créer un compte, se connecter, gérer une session et échanger des messages.</p>
+              <div class="mini-grid">
+                <div class="mini"><h4>Architecture</h4><ul><li>formulaire.php</li><li>login.php et logout.php</li><li>registre_erreurs.php</li><li>message.php et sql.php</li></ul></div>
+                <div class="mini"><h4>Sécurité</h4><ul><li>password_hash</li><li>password_verify</li><li>session_regenerate_id</li><li>Contrôle des champs</li></ul></div>
+                <div class="mini"><h4>Données</h4><p>Connexion PDO, requêtes SELECT et INSERT, vérification de l'unicité pour éviter les doublons.</p></div>
+                <div class="mini"><h4>Messagerie</h4><p>Messages contrôlés, enregistrés puis affichés avec leur auteur et leur date.</p></div>
               </div>
-              <a class="project-link" href="https://github.com/diegooodelatess/tp_php-final" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub ↗</a>
+              <a class="project-link" href="https://github.com/Diego-hekimian/tp_php-final" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub ↗</a>
             </div>
           </article>
 
           <article class="project reveal">
-            <div class="project-visual">
-              <span class="visual-label">Projet web complet</span>
-              <img src="assets/quizzeo.png" alt="Illustration du projet Quizzeo">
+            <div class="project-gallery three">
+              <figure><img src="assets/projet3/login_q.png" alt="Page de connexion de Quizzeo" loading="lazy"><figcaption>Authentification des utilisateurs</figcaption></figure>
+              <figure><img src="assets/projet3/creer_compte_q.png" alt="Page de création de compte Quizzeo" loading="lazy"><figcaption>Inscription, choix du rôle et captcha</figcaption></figure>
+              <figure><img src="assets/projet3/panneau_admin.png" alt="Panneau d'administration de Quizzeo" loading="lazy"><figcaption>Gestion des utilisateurs et des quiz</figcaption></figure>
             </div>
-            <div class="project-info">
-              <span class="project-number">PROJET 03</span>
-              <h3>Quizzeo</h3>
-              <p>Plateforme de création et de participation à des quiz réalisée à partir d'un cahier des charges.</p>
-              <div class="project-grid">
-                <div class="mini"><h4>Fonctionnalités</h4><ul><li>Création et gestion de quiz</li><li>Questions et réponses</li><li>Participation</li><li>Suivi des résultats</li></ul></div>
-                <div class="mini"><h4>Gestion des accès</h4><ul><li>Comptes utilisateurs</li><li>Authentification</li><li>Différents rôles</li><li>Accès adaptés</li></ul></div>
-                <div class="mini"><h4>Mon ajout personnel</h4><p>Un code unique est généré lors de la création d'un quiz. Seules les personnes possédant ce code peuvent le rejoindre.</p></div>
-                <div class="mini"><h4>Apports</h4><p>Respect d'un cahier des charges, organisation d'un projet plus important et réflexion sur les droits utilisateurs.</p></div>
+            <div class="project-content">
+              <p class="kicker">Projet 03 · HTML / CSS / JavaScript</p><h3>Quizzeo</h3>
+              <p>Plateforme de création et de participation à des quiz réalisée à partir d'un cahier des charges, avec authentification et rôles utilisateurs.</p>
+              <div class="mini-grid">
+                <div class="mini"><h4>Fonctionnalités</h4><ul><li>Création et gestion de quiz</li><li>Questions et réponses</li><li>Participation et résultats</li></ul></div>
+                <div class="mini"><h4>Gestion des accès</h4><ul><li>Comptes et authentification</li><li>Rôles utilisateur, école, entreprise et administrateur</li><li>Activation et désactivation</li></ul></div>
+                <div class="mini"><h4>Mon ajout personnel</h4><p>Génération d'un code unique pour limiter l'accès au quiz aux personnes autorisées.</p></div>
+                <div class="mini"><h4>Apports</h4><p>Respect d'un cahier des charges, organisation d'un projet conséquent et réflexion sur les droits d'accès.</p></div>
               </div>
-              <a class="project-link" href="https://github.com/diegooodelatess/projet-quizzo" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub ↗</a>
+              <a class="project-link" href="https://github.com/Diego-hekimian/projet-quizzo" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub ↗</a>
             </div>
           </article>
         </div>
@@ -467,88 +403,102 @@
 
     <section id="competences">
       <div class="container">
-        <div class="section-head reveal"><div><p class="kicker">Formation polyvalente</p><h2>Compétences abordées</h2></div><p>Le développement web est au centre de ce portfolio, avec des domaines complémentaires en systèmes, réseaux et sécurité.</p></div>
-        <div class="grid-3">
-          <article class="card reveal"><div class="icon">⌨️</div><h3>Développement</h3><ul><li>HTML, CSS, JavaScript</li><li>PHP, SQL, MySQL</li><li>Python</li><li>Java, Spring Boot</li><li>TypeScript, Angular</li></ul></article>
-          <article class="card reveal"><div class="icon">🖥️</div><h3>Systèmes</h3><ul><li>Windows Server</li><li>Active Directory et GPO</li><li>Linux</li><li>Proxmox et VMware</li></ul></article>
-          <article class="card reveal"><div class="icon">🌐</div><h3>Réseaux</h3><ul><li>Cisco Packet Tracer</li><li>Adressage et routage</li><li>ARP et OSPF</li><li>Diagnostic réseau</li></ul></article>
-          <article class="card reveal"><div class="icon">🛡️</div><h3>Cybersécurité</h3><ul><li>Durcissement de machines virtuelles</li><li>Sécurisation Windows et Linux</li><li>Nmap en environnement pédagogique</li><li>Analyse des services exposés</li></ul></article>
-          <article class="card reveal"><div class="icon">🎮</div><h3>Jeu vidéo</h3><p>Réalisation d'un petit Runner Game sous Unity. Une initiation complémentaire, sans en faire ma spécialité.</p></article>
-          <article class="card reveal"><div class="icon">🧰</div><h3>Outils</h3><p>VS Code, IntelliJ IDEA, Git, GitHub, GitLab, Jira, SQL Developer, Postman et WAMP Server.</p></article>
+        <div class="section-head reveal"><div><p class="kicker">Formation polyvalente</p><h2>Compétences abordées</h2></div><p>Le développement web est complété par des projets en systèmes, réseaux et sécurité.</p></div>
+        <div class="skills-grid">
+          <article class="skill-card reveal"><h3>Développement</h3><ul><li>HTML, CSS, JavaScript</li><li>PHP, SQL et MySQL</li><li>Java et Spring Boot</li><li>TypeScript et Angular</li></ul></article>
+          <article class="skill-card reveal"><h3>Systèmes</h3><ul><li>Windows Server</li><li>Active Directory et GPO</li><li>Linux et SSH</li><li>Proxmox et VMware</li></ul></article>
+          <article class="skill-card reveal"><h3>Réseaux</h3><ul><li>Cisco Packet Tracer</li><li>Adressage et routage</li><li>ARP et OSPF</li><li>Diagnostic réseau</li></ul></article>
+          <article class="skill-card reveal"><h3>Cybersécurité</h3><ul><li>Durcissement de machines virtuelles</li><li>Sécurisation Windows et Linux</li><li>Nmap en environnement pédagogique</li><li>Analyse des services exposés</li></ul></article>
+          <article class="skill-card reveal"><h3>Outils</h3><p>VS Code, IntelliJ IDEA, Git, GitHub, GitLab, Jira, SQL Developer et Postman.</p></article>
+          <article class="skill-card reveal"><h3>Jeu vidéo</h3><p>Découverte de Unity à travers la réalisation d'un petit Runner Game.</p></article>
         </div>
       </div>
     </section>
 
     <section id="certifications">
       <div class="container">
-        <div class="section-head reveal"><div><p class="kicker">Attestations obtenues</p><h2>Certifications</h2></div><p>Sécurité numérique, protection des données et environnement Linux.</p></div>
-        <div class="grid-3">
-          <article class="card reveal"><span class="badge">ANSSI • SecNumacadémie</span><h3>Fondamentaux de la sécurité numérique</h3><ul><li>Panorama de la SSI</li><li>Sécurité de l'authentification</li><li>Sécurité sur Internet</li><li>Poste de travail et nomadisme</li></ul><a class="cert-link" href="certifications/attestation anssi(certification).pdf" target="_blank">Consulter l'attestation ↗</a></article>
-          <article class="card reveal"><span class="badge">CNIL • Atelier RGPD</span><h3>Protection des données</h3><ul><li>RGPD et notions clés</li><li>Principes de protection</li><li>Responsabilités des acteurs</li><li>DPO et conformité</li><li>Travail et données personnelles</li></ul></article>
-          <article class="card reveal"><span class="badge">Cisco Networking Academy</span><h3>Linux Unhatched</h3><p>Parcours d'initiation à l'environnement Linux.</p><a class="cert-link" href="certifications/certif linux.pdf" target="_blank">Consulter le certificat ↗</a></article>
+        <div class="section-head reveal"><div><p class="kicker">Preuves de compétences</p><h2>Certifications</h2></div><p>Des compléments à ma formation autour de la sécurité, de la protection des données et de Linux.</p></div>
+        <div class="cert-grid">
+          <article class="cert-card reveal"><h3>ANSSI SecNumacadémie</h3><p>Sensibilisation à la sécurité des systèmes d'information.</p><a class="project-link" href="certifications/attestation anssi(certification).pdf" target="_blank">Voir l'attestation ↗</a></article>
+          <article class="cert-card reveal">
+            <h3>CNIL et RGPD</h3>
+            <p>
+                Modules consacrés aux notions clés du RGPD,
+                aux responsabilités des acteurs et à la protection des données.
+            </p>
+
+            <a class="project-link"
+              href="certifications.html"
+              target="_blank">
+              Voir les 6 attestations ↗
+            </a>
+        </article>
+        <article class="cert-card reveal"><h3>Linux</h3><p>Initiation aux fondamentaux Linux et à la ligne de commande.</p><a class="project-link" href="certifications/certif linux.pdf" target="_blank">Voir l'attestation ↗</a></article>
         </div>
       </div>
     </section>
 
     <section id="stage">
       <div class="container">
-        <div class="section-head reveal"><div><p class="kicker">Expérience professionnelle</p><h2>Stage à la CIPAV</h2></div><p>Une présentation synthétique, CR-PATCH étant présenté plus en détail durant ma soutenance de stage.</p></div>
-        <div class="grid-2">
-          <article class="panel highlight reveal"><h3>Application CR-PATCH</h3><p>Application interne de suivi et de gestion des correctifs et interventions du système d'information.</p><div class="tech-list"><span class="tech">Angular</span><span class="tech">TypeScript</span><span class="tech">Java</span><span class="tech">Spring Boot</span><span class="tech">Oracle SQL</span><span class="tech">GitLab</span></div></article>
-          <article class="panel reveal"><h3>Compétences développées</h3><ul class="clean-list"><li>Évolutions front-end et back-end</li><li>Branches, commits et merge requests</li><li>Revues de code</li><li>Débogage avec IntelliJ IDEA</li><li>Filtres, pagination et export CSV</li><li>Amélioration de l'interface</li></ul></article>
+        <div class="section-head reveal"><div><p class="kicker">Expérience professionnelle</p><h2>Stage à la CIPAV</h2></div></div>
+        <div class="stage-grid">
+          <article class="panel reveal"><h3>Application CR-PATCH</h3><p>Application interne servant à centraliser, consulter, rechercher, suivre et exporter les comptes rendus d'exécution des patches.</p><div class="tags"><span class="tag">Angular</span><span class="tag">TypeScript</span><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Oracle SQL</span><span class="tag">GitLab</span></div></article>
+          <article class="panel reveal"><h3>Réalisations principales</h3><ul><li>Améliorations de l'interface</li><li>Filtres avancés et pagination</li><li>Tri et réinitialisation des recherches</li><li>Export CSV selon les filtres actifs</li><li>Liens vers Jira et GitLab</li><li>Modification des commentaires</li></ul></article>
         </div>
       </div>
     </section>
 
-    <section id="interets">
+    <section>
       <div class="container">
-        <div class="section-head reveal"><div><p class="kicker">En dehors des projets</p><h2>Centres d'intérêt</h2></div><p>Des sujets qui nourrissent ma curiosité, mon envie de découvrir et mon intérêt pour l'innovation.</p></div>
-        <div class="grid-3">
-          <article class="card reveal"><div class="icon">💻</div><h3>Nouvelles technologies</h3><p>Développement web, outils numériques, innovations logicielles et veille technologique.</p></article>
-          <article class="card reveal"><div class="icon">🎮</div><h3>Jeux vidéo</h3><p>Intérêt pour les univers interactifs, les mécaniques de jeu et la conception d'expériences numériques.</p></article>
-          <article class="card reveal"><div class="icon">🏊</div><h3>Natation</h3><p>Une activité associée à la régularité, à la maîtrise de soi et au dépassement personnel.</p></article>
-          <article class="card reveal"><div class="icon">🔭</div><h3>Espace et astronomie</h3><p>Intérêt pour l'exploration spatiale, les missions scientifiques et les technologies associées.</p></article>
-          <article class="card reveal"><div class="icon">🌍</div><h3>Exploration et découverte</h3><p>Curiosité pour les cultures, les sciences, les innovations et la découverte du monde.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="contact reveal">
-          <p class="kicker">Conclusion et contact</p>
-          <h2>Continuer à progresser en développement et en cybersécurité.</h2>
-          <p class="muted">Mon parcours montre une progression depuis mes premières découvertes jusqu'à des applications web plus complètes et une première expérience professionnelle.</p>
-          <div class="actions">
-            <a class="btn primary" href="https://github.com/diegooodelatess" target="_blank" rel="noopener noreferrer">Mon profil GitHub ↗</a>
-            <a class="btn secondary" href="assets/CV_Diego_HekimianV2.1.docx">Consulter mon CV</a>
-            <a class="btn secondary" href="mailto:d.hekimian@ecole-ipssi.net">Me contacter</a>
-          </div>
+        <div class="cta reveal">
+          <div><p class="kicker">Projet professionnel</p><h2>Développement aujourd'hui, cybersécurité demain.</h2><p>Mon objectif est de poursuivre mes études, consolider mes compétences en développement et évoluer progressivement vers une spécialisation en cybersécurité.</p></div>
+          <div class="actions"><a class="btn primary" href="assets/CV_Diego_HekimianV2.1.docx">Voir mon CV</a><a class="btn" href="https://github.com/Diego-hekimian" target="_blank" rel="noopener noreferrer">GitHub</a></div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer><div class="container">© <span id="year"></span> Diego Hekimian • Portfolio étudiant</div></footer>
+  <footer>© <span id="year"></span> Diego Hekimian · Portfolio étudiant</footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" aria-label="Fermer">×</button>
+    <img src="" alt="Aperçu agrandi">
+  </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 
-    document.querySelectorAll(".reveal").forEach((element) => {
-      observer.observe(element);
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = lightbox.querySelector("img");
+    const closeButton = lightbox.querySelector("button");
+
+    document.querySelectorAll(".project-gallery img").forEach((image) => {
+      image.addEventListener("click", () => {
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+      });
     });
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+    }
+    closeButton.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (event) => { if (event.target === lightbox) closeLightbox(); });
+    document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeLightbox(); });
   </script>
 </body>
 </html>

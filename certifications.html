@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certifications CNIL & RGPD</title>
+
+<style>
+:root{
+    --bg:#0f172a;
+    --card:#1e293b;
+    --text:#f8fafc;
+    --cyan:#22d3ee;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:10px;
+    font-size:2.5rem;
+}
+
+.subtitle{
+    text-align:center;
+    color:#cbd5e1;
+    margin-bottom:50px;
+}
+
+.cert-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.cert-card{
+    background:var(--card);
+    padding:25px;
+    border-radius:18px;
+    text-align:center;
+    transition:.3s;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.cert-card:hover{
+    transform:translateY(-6px);
+    border-color:var(--cyan);
+}
+
+.cert-icon{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.cert-card h3{
+    margin-bottom:10px;
+}
+
+.cert-card p{
+    color:#cbd5e1;
+    margin-bottom:20px;
+}
+
+.btn{
+    display:inline-block;
+    padding:10px 18px;
+    background:var(--cyan);
+    color:#0f172a;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:700;
+}
+
+.btn:hover{
+    opacity:.9;
+}
+
+.back{
+    display:block;
+    width:max-content;
+    margin:50px auto 0;
+    color:var(--cyan);
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>CNIL & RGPD</h1>
+
+    <p class="subtitle">
+        Certifications obtenues dans le cadre de ma sensibilisation à la
+        protection des données personnelles et au RGPD.
+    </p>
+
+    <div class="cert-grid">
+
+        <div class="cert-card">
+            <div class="cert-icon"></div>
+            <h3>Attestation 1</h3>
+            <p>Introduction au RGPD</p>
+            <a class="btn" href="certifications/Certificat_1.pdf">le PDF</a>
+        </div>
+
+        <div class="cert-card">
+            <div class="cert-icon"></div>
+            <h3>Attestation 2</h3>
+            <p>Données personnelles</p>
+            <a class="btn" href="certifications/Certificat_2.pdf">le PDF</a>
+        </div>
+
+        <div class="cert-card">
+            <div class="cert-icon"></div>
+            <h3>Attestation 3</h3>
+            <p>Responsabilités des acteurs</p>
+            <a class="btn" href="certifications/Certificat_3.pdf">le PDF</a>
+        </div>
+
+        <div class="cert-card">
+            <div class="cert-icon"></div>
+            <h3>Attestation 4</h3>
+            <p>Sécurité des données</p>
+            <a class="btn" href="certifications/Certificat_4.pdf">le PDF</a>
+        </div>
+
+        <div class="cert-card">
+            <div class="cert-icon"></div>
+            <h3>Attestation 5</h3>
+            <p>Conformité RGPD</p>
+            <a class="btn" href="certifications/Certificat_5.pdf">le PDF</a>
+        </div>
+
+        <div class="cert-card">
+            <div class="cert-icon"></div>
+            <h3>Attestation 6</h3>
+            <p>Mise en pratique</p>
+            <a class="btn" href="certifications/Certificat_6.pdf">le PDF</a>
+        </div>
+
+    </div>
+
+    <a class="back" href="index.html">
+        ← Retour au portfolio
+    </a>
+
+</div>
+
+</body>
+</html>
